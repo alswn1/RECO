@@ -1,5 +1,5 @@
 package com.example.reco;
-
+// 아아 테스트메시지
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
