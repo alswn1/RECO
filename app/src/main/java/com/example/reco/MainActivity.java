@@ -1,5 +1,5 @@
 package com.example.reco;
-// 아아 테스트메시지22
+//
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -17,7 +17,7 @@ import com.example.reco.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
-//
+//test 3
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
