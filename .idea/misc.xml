@@ -5,14 +5,17 @@
       <map>
         <entry key="..\:/AndroidProjects/RECO/app/src/main/res/layout/activity_garbage_classification.xml" value="0.5536458333333333" />
         <entry key="..\:/AndroidProjects/RECO/app/src/main/res/layout/activity_main.xml" value="0.5536458333333333" />
+        <entry key="..\:/AndroidProjects/RECO/app/src/main/res/layout/activity_photo.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/RECO/app/src/main/res/layout/content_garbage_classification.xml" value="0.5536458333333333" />
         <entry key="..\:/AndroidProjects/RECO/app/src/main/res/layout/content_main.xml" value="0.5536458333333333" />
+        <entry key="..\:/AndroidProjects/RECO/app/src/main/res/layout/content_photo.xml" value="0.12685185185185185" />
         <entry key="..\:/AndroidProjects/RECO/app/src/main/res/layout/fragment_first.xml" value="0.5536458333333333" />
         <entry key="..\:/AndroidProjects/RECO/app/src/main/res/layout/fragment_first2.xml" value="0.5536458333333333" />
         <entry key="..\:/AndroidProjects/RECO/app/src/main/res/layout/fragment_second.xml" value="0.5536458333333333" />
         <entry key="..\:/AndroidProjects/RECO/app/src/main/res/layout/fragment_second2.xml" value="0.5536458333333333" />
         <entry key="..\:/AndroidProjects/RECO/app/src/main/res/menu/menu_main.xml" value="0.5536458333333333" />
         <entry key="..\:/AndroidProjects/RECO/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.5085" />
+        <entry key="..\:/AndroidProjects/RECO/app/src/main/res/xml/file_paths.xml" value="0.2312563323201621" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>
