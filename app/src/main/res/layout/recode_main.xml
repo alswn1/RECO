@@ -89,6 +89,7 @@
         android:layout_marginTop="25dp"
         android:backgroundTint="#00FFFFFF"
         android:contentDescription="levelb"
+        android:onClick="popup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
         app:srcCompat="@drawable/level" />
@@ -157,28 +158,30 @@
         android:layout_marginStart="8dp"
         android:text="경험치가 남았어요"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
-        tools:layout_editor_absoluteY="719dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
+        app:layout_constraintStart_toEndOf="@+id/textView13" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:text="500"
         android:textColor="#416D00"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10"
-        tools:layout_editor_absoluteX="178dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="8dp"
         android:text="다음 등급까지"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView13"
-        tools:layout_editor_absoluteY="719dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
+        app:layout_constraintEnd_toStartOf="@+id/textView13" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
