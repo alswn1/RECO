@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GarbageCamera">
+    <ScrollView
+        android:layout_above="@+id/linear_holder"
+        android:layout_alignParentTop="true"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/text_data"
+            android:textSize="22dp"
+            android:textColor="@color/black"
+            android:text="Hello! Capture or copy the image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/linear_holder"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button_capture"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginStart=""
+            android:layout_marginTop=""
+            android:layout_marginEnd=""
+            android:layout_marginBottom=""
+            android:layout_weight="1"
+            android:text="Capture" />
+        <Button
+            android:visibility="invisible"
+            android:id="@+id/button_copy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Copy text"
+            android:layout_margin="8dp"/>
+    </LinearLayout>
+</RelativeLayout>
