@@ -5,19 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GarbageCamera">
+
     <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_above="@+id/linear_holder"
         android:layout_alignParentTop="true"
-        android:layout_margin="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp">
+
         <TextView
             android:id="@+id/text_data"
-            android:textSize="22dp"
-            android:textColor="@color/black"
-            android:text="Hello! Capture or copy the image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Hello! Capture or copy the image"
+            android:textColor="@color/black"
+            android:textSize="22dp" />
     </ScrollView>
     <LinearLayout
         android:id="@+id/linear_holder"
@@ -30,10 +35,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:layout_marginStart=""
-            android:layout_marginTop=""
-            android:layout_marginEnd=""
-            android:layout_marginBottom=""
             android:layout_weight="1"
             android:text="Capture" />
         <Button
