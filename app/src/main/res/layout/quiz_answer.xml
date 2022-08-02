@@ -6,151 +6,148 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="363dp"
-        android:layout_height="651dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="32dp"
+        android:id="@+id/bg_quiz2"
+        android:layout_width="wrap_content"
+        android:layout_height="520dp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeb3"
-        app:srcCompat="@drawable/quiz_bg" />
-
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:fontFamily="@font/bmjua"
-        android:text="정답은 ?"
-        android:textColor="#000000"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView16" />
+        android:src="@drawable/quiz_bg" />
 
     <ImageButton
-        android:id="@+id/back4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:backgroundTint="#FFFFFF"
-        android:contentDescription="back"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeb3"
-        app:srcCompat="@drawable/back" />
-
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="481dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/base" />
-
-    <ImageButton
-        android:id="@+id/homeb3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#FFFFFF"
-        android:contentDescription="homeb"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toStartOf="@+id/settings3"
-        app:layout_constraintStart_toEndOf="@+id/alert3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/reco" />
-
-    <ImageButton
-        android:id="@+id/alert3"
+        android:id="@+id/btn_alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        android:backgroundTint="#FFFFFF"
+        android:background="@android:color/transparent"
         android:contentDescription="alert"
-        app:layout_constraintEnd_toStartOf="@+id/homeb"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/btn_alert"
+        app:layout_constraintBottom_toTopOf="@+id/base"
+        app:layout_constraintEnd_toStartOf="@+id/btn_home"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bell" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/base"
+        android:layout_width="411dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="45dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/base"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/settings3"
+        android:id="@+id/btn_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="btn_home"
+        android:minHeight="48dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/btn_home"
+        app:layout_constraintEnd_toStartOf="@+id/btn_settings"
+        app:layout_constraintStart_toEndOf="@+id/btn_alert"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="#FFFFFF"
+        android:background="@android:color/transparent"
         android:contentDescription="settings"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/btn_setting"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/homeb"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/setting" />
+        app:layout_constraintStart_toEndOf="@+id/btn_home"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton11"
+    <ImageView
+        android:id="@+id/quiz_answer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="#00FFFFFF"
-        android:contentDescription="answer"
+        android:layout_marginBottom="230dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26"
-        app:srcCompat="@drawable/answer" />
+        android:src="@drawable/quiz_answer" />
 
     <ImageButton
-        android:id="@+id/imageButton12"
+        android:id="@+id/btn_quiz_answer_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        android:minHeight="48dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="check"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/check" />
+
+    <TextView
+        android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:backgroundTint="#00FFFFFF"
-        android:contentDescription="check_button"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView16"
+        android:fontFamily="@font/bmjua"
+        android:text="정답은 ?"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/quiz_answer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/check" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView27"
+        android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/bmjua"
         android:text="뚜껑과 플라스틱 빨대는"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton11" />
+        app:layout_constraintTop_toBottomOf="@+id/quiz_answer" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/bmjua"
         android:text="일반 쓰레기로"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView27"
-        app:layout_constraintStart_toStartOf="@+id/textView27"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+        app:layout_constraintEnd_toEndOf="@+id/textView19"
+        app:layout_constraintStart_toStartOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
     <TextView
-        android:id="@+id/textView29"
+        android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/bmjua"
         android:text="분리배출 해야 합니다."
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView28"
-        app:layout_constraintStart_toStartOf="@+id/textView28"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+        app:layout_constraintEnd_toEndOf="@+id/textView20"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

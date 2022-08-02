@@ -9,17 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RECO">
-        <activity
-            android:name=".MainActivity"
+
+        <activity android:name=".Home"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.RECO.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".RecodeMain"/>
+        <activity android:name=".RecodeLevel" android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"/>
+        <activity android:name=".QuizMain"/>
+        <activity android:name=".QuizFail" android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"/>
+        <activity android:name=".QuizGetPoint" android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"/>
+        <activity android:name=".QuizAnswer"/>
+        <activity android:name=".Event"/>
     </application>
 
 </manifest>

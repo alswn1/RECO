@@ -1,13 +1,15 @@
 package com.example.reco;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.view.Window;
 
-public class RecodeLevel extends Activity {
+import androidx.fragment.app.FragmentActivity;
 
+public class RecodeLevel extends FragmentActivity {
     @Override
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.recode_level);
     }
 }
