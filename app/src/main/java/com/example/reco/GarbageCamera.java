@@ -1,165 +1,155 @@
 package com.example.reco;
 
-import androidx.appcompat.app.AlertDialog;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.webkit.MimeTypeMap;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
-import com.googlecode.tesseract.android.TessBaseAPI;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
+import com.example.reco.database.PIC_VALIDATION;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class GarbageCamera extends AppCompatActivity {
-    String hi;
-    TessBaseAPI tessBaseAPI;
-    String dataPath = "";
-    String langData = "kor+eng";
-
+    
+    private ImageView imageView;
+    private ProgressBar progressBar;
+    private final DatabaseReference root = FirebaseDatabase.getInstance().getReference("Image");
+    private final StorageReference reference = FirebaseStorage.getInstance().getReference();
+    
+    private Uri imageUri;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_garbage_camera);
 
-        try {
-            dataPath = getFilesDir() + "/tesseract/";
-            checkFile(new File(dataPath + "tessdata/"), "kor");
-            checkFile(new File(dataPath + "tessdata/"), "eng");
-
-            tessBaseAPI = new TessBaseAPI();
-            tessBaseAPI.init(dataPath, langData);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
-    }
-
-    private void checkFile(File dir, String lang) {
-        Log.d("---", "---");
-        Log.d("//===========//","================================================");
-        Log.d("","\n"+"[A_CameraOcr > checkFile() 메소드 : OCR 인식 위한 파일 존재 확인 실시]");
-        Log.d("","\n"+"[언어 파일 : "+String.valueOf(lang)+"]");
-        Log.d("//===========//","================================================");
-        Log.d("---","---");
-        try {
-            if(!dir.exists() && dir.mkdirs()){
-                copyFiles(lang);
+        // 컴포넌트 객체에 담기
+        Button uploadBtn = findViewById(R.id.upload_btn);
+        progressBar = findViewById(R.id.progress_View);
+        imageView = findViewById(R.id.image_view);
+        
+        // 프로그래스바 숨기기
+        progressBar.setVisibility(View.INVISIBLE);
+        
+        // 이미지 클릭 이벤트
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent galleryIntent = new Intent();
+                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+                galleryIntent.setType("image/");
+                activityResult.launch(galleryIntent);
             }
+        });
+        
+        // 업로드버튼 클릭 이벤트
+        uploadBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 선택한 이미지가 있다면
+                if (imageUri != null) {
+                    uploadToFirebase(imageUri);
+                } else {
+                    Toast.makeText(GarbageCamera.this, "사진을 선택해주세요", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    } // onCreate
 
-            if(dir.exists()){
-                String dataFilePath = dataPath + "/tessdata/" + lang + ".traineddata";
-                File dataFile = new File(dataFilePath);
-                if(!dataFile.exists()){
-                    copyFiles(lang);
+    // 사진 가져오기
+    ActivityResultLauncher<Intent> activityResult = registerForActivityResult(
+        new ActivityResultContracts.StartActivityForResult(),
+        new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                if (result.getResultCode() == RESULT_OK && result.getData() != null){
+                    imageUri = result.getData().getData();
+
+                    imageView.setImageURI(imageUri);
                 }
             }
         }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+    );
 
-    private void copyFiles(String lang) {
-        Log.d("---","---");
-        Log.d("//===========//","================================================");
-        Log.d("","\n"+"[A_CameraOcr > copyFiles() 메소드 : OCR 인식 위한 언어 파일 복사 실시]");
-        Log.d("","\n"+"[언어 파일 : "+String.valueOf(lang)+"]");
-        Log.d("//===========//","================================================");
-        Log.d("---","---");
-        try {
-            String filePath = dataPath + "/tessdata/" + lang + ".traineddata";
+    // Firebase에 이미지 업로드
+    private void uploadToFirebase(Uri uri) {
+        StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
+        fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
 
-            AssetManager assetManager = getAssets();
+                        // 이미지 모델에 담기
+                        PIC_VALIDATION PIC_VALIDATION = new PIC_VALIDATION(uri.toString());
 
-            InputStream inputStream = assetManager.open("tessdata/" + lang + ".traineddata");
-            OutputStream outputStream = new FileOutputStream(filePath);
+                        // 키로 아이디 생성
+                        String modelId = root.push().getKey();
 
-            byte[] buffer = new byte[1024];
-            int read;
-            while((read = inputStream.read(buffer)) != -1){
-                outputStream.write(buffer, 0, read);
+                        // 데이터 넣기
+                        root.child(modelId).setValue(PIC_VALIDATION);
+
+                        // 프로그래스바 숨김
+                        progressBar.setVisibility(View.INVISIBLE);
+                        Toast.makeText(GarbageCamera.this, "업로드 성공", Toast.LENGTH_SHORT).show();
+                        imageView.setImageResource(R.drawable.ic_add_photo);
+                    }
+                });
             }
-            outputStream.flush();
-            outputStream.close();
-            inputStream.close();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                // 프로그래스바 보여주기
+                progressBar.setVisibility(View.VISIBLE);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                // 프로그래스바 숨김
+                progressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(GarbageCamera.this, "업로드 실패", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    public void getOcrConvert(ImageView image){
-        Log.d("---","---");
-        Log.d("//===========//","================================================");
-        Log.d("","\n"+"[A_CameraOcr > getOcrConvert() 메소드 : OCR 인식 수행 실시]");
-        Log.d("//===========//","================================================");
-        Log.d("---","---");
-        try {
-            //TODO [drawable 리소스를 비트맵으로 가져오기]
-            //Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.icon_resource);
+    // 파일타입 가져오기
+    private String getFileExtension(Uri uri) {
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
 
-            //TODO [이미지 뷰의 리소스를 비트맵으로 가져오기]
-            Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
-
-            //TODO [OCR 인식 수행]
-            tessBaseAPI.setImage(bitmap);
-            String result = String.valueOf(tessBaseAPI.getUTF8Text());
-
-            //TODO [Alert 팝업창 호출 실시]
-            getAlertDialog("[OCR] 사진 인식 결과",
-                    String.valueOf(result),
-                    "확인", "", "");
-
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+        return mime.getExtensionFromMimeType(cr.getType(uri));
     }
-
-    private void getAlertDialog(String header, String content, String ok, String no, String normal) {
-        //TODO 타이틀 및 내용 표시
-        final String Tittle = header;
-        final String Message = content;
-
-        //TODO 버튼 이름 정의
-        String buttonNo = no;
-        String buttonYes = ok;
-        String buttonNature = normal;
-
-        //TODO AlertDialog 팝업창 생성
-        new AlertDialog.Builder(GarbageCamera.this)
-                .setTitle(Tittle) //[팝업창 타이틀 지정]
-                //.setIcon(R.drawable.tk_app_icon) //[팝업창 아이콘 지정]
-                .setMessage(Message) //[팝업창 내용 지정]
-                .setCancelable(false) //[외부 레이아웃 클릭시도 팝업창이 사라지지않게 설정]
-                .setPositiveButton(buttonYes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // TODO Auto-generated method stub
-                    }
-                })
-                .setNegativeButton(buttonNo, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // TODO Auto-generated method stub
-                    }
-                })
-                .setNeutralButton(buttonNature, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // TODO Auto-generated method stub
-                    }
-                })
-                .show();
-    }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

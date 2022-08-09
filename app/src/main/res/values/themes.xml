@@ -12,5 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <!-- 상단에 패키지 이름을 없애줌 -->
+        <item name="windowNoTitle">true</item>
     </style>
 </resources>

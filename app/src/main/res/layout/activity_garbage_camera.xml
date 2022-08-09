@@ -1,55 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".GarbageCamera">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/linear_holder"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="90dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp">
-
-        <TextView
-            android:id="@+id/text_data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello! Capture or copy the image"
-            android:textColor="@color/black"
-            android:textSize="22dp" />
-    </ScrollView>
-
     <LinearLayout
-        android:id="@+id/linear_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_marginTop="15dp">
 
-        <Button
-            android:id="@+id/button_capture"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:backgroundTint="#4b6c11"
-            android:text="Capture" />
+        <ImageView
+            android:id="@+id/reco_alarm"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            app:srcCompat="@drawable/alarm" />
 
-        <Button
-            android:id="@+id/button_copy"
-            android:layout_width="0dp"
+        <ImageView
+            android:id="@+id/reco_icon"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="70.5dp"
+            app:srcCompat="@drawable/reco" />
+
+        <ImageView
+            android:id="@+id/reco_plant"
+            android:layout_width="25dp"
+            android:layout_height="41dp"
+            app:srcCompat="@drawable/plant" />
+
+        <ImageView
+            android:id="@+id/reco_setting"
+            android:layout_width="42dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="70.5dp"
+            app:srcCompat="@drawable/setting" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/ic_add_photo" />
+
+        <ProgressBar
+            android:id="@+id/progress_View"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/upload_btn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:text="Copy text"
-            android:backgroundTint="#4b6c11"
-            android:visibility="invisible" />
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="15dp"
+            android:text="CHECK RECYCLE"
+            android:textSize="20dp" />
+
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>
