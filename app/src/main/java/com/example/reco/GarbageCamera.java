@@ -19,7 +19,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class GarbageCamera extends AppCompatActivity {
-
+    String hi;
     TessBaseAPI tessBaseAPI;
     String dataPath = "";
     String langData = "kor+eng";
