@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1031626764101",
+    "project_id": "reco-8e0d8",
+    "storage_bucket": "reco-8e0d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031626764101:android:a75fd51f83f9211bef582c",
+        "android_client_info": {
+          "package_name": "com.example.reco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031626764101-0sbp40m67hl31vv4hdi7v3pu0t4c27fj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2Y1Hrv36rWL7irDatdv1E96ZydDUO02k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031626764101-0sbp40m67hl31vv4hdi7v3pu0t4c27fj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

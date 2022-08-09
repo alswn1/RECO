@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidProjects/RECO/app/src/main/res/layout/activity_garbage_camera.xml" value="0.67" />
+        <entry key="..\:/AndroidProjects/RECO/app/src/main/res/drawable-v24/reco.xml" value="0.1765" />
+        <entry key="..\:/AndroidProjects/RECO/app/src/main/res/drawable/reco_gui.xml" value="0.1885" />
+        <entry key="..\:/AndroidProjects/RECO/app/src/main/res/layout/activity_garbage_camera.xml" value="0.2016210739614995" />
         <entry key="..\:/AndroidProjects/RECO/app/src/main/res/layout/activity_main.xml" value="0.2898550724637681" />
+        <entry key="..\:/AndroidProjects/RECO/app/src/main/res/layout/reco.xml" value="0.34782608695652173" />
+        <entry key="..\:/AndroidProjects/RECO/app/src/main/res/layout/reco_gui.xml" value="0.34782608695652173" />
+        <entry key="..\:/AndroidProjects/RECO/app/src/main/res/mipmap-anydpi-v26/reco_icon.xml" value="0.1535" />
       </map>
     </option>
   </component>
