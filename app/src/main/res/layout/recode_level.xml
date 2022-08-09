@@ -23,15 +23,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/recode_level_name2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="175dp"
-        android:text="묘목 등급"
+        android:text="묘목"
         android:textColor="#517118"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="175dp"
+        android:text="등급"
+        android:textColor="#517118"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/recode_level_name2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -45,7 +57,7 @@
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+        app:layout_constraintTop_toBottomOf="@+id/recode_level_name2" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -96,7 +108,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/recode_level_name1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="71dp"
@@ -132,7 +144,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/recode_exp_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -199,7 +211,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
     <TextView
-        android:id="@+id/textView34"
+        android:id="@+id/recode_exp_adv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -216,7 +228,7 @@
         android:layout_marginTop="46dp"
         android:text="% 증가"
         android:textColor="#A7CD6E"
-        app:layout_constraintStart_toEndOf="@+id/textView34"
+        app:layout_constraintStart_toEndOf="@+id/recode_exp_adv"
         app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
     <TextView

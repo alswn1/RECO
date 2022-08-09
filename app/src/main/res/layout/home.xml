@@ -27,12 +27,12 @@
         app:layout_constraintVertical_bias="0.45" />
 
     <TextView
-        android:id="@+id/point"
+        android:id="@+id/user_point"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="7dp"
         android:layout_marginEnd="84dp"
-        android:text="1,000p"
+        android:text="1,000"
         android:textColor="#8CEA29"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -53,7 +53,7 @@
         android:textColor="#C3C3C3"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/point"
+        app:layout_constraintEnd_toStartOf="@+id/user_point"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/base" />
 
@@ -164,5 +164,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/btn_map" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="73dp"
+        android:text="p"
+        android:textColor="#8CEA29"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/user_point"
+        tools:layout_editor_absoluteY="204dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

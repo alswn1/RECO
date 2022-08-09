@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".RecodeMain"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".RecodeMain">
 
     <ImageView
         android:id="@+id/bg_recode"
         android:layout_width="666dp"
         android:layout_height="857dp"
-        android:layout_marginTop="77dp"
+        android:layout_marginTop="68dp"
         android:src="@drawable/bg_recode"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,10 +87,10 @@
         android:text="다음 등급까지"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/exp" />
+        app:layout_constraintEnd_toStartOf="@+id/exp_level" />
 
     <TextView
-        android:id="@+id/exp"
+        android:id="@+id/exp_level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
@@ -110,7 +110,7 @@
         android:text="경험치가 남았어요"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/exp" />
+        app:layout_constraintStart_toEndOf="@+id/exp_level" />
 
     <ImageView
         android:id="@+id/bg_recode_circle"
@@ -140,21 +140,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
         android:layout_marginBottom="150dp"
-        android:contentDescription="sprout"
         android:background="@android:color/transparent"
+        android:contentDescription="sprout"
         android:src="@drawable/sprout"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/exp_gage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:src="@drawable/exp_gage"
-        android:contentDescription="exp_gage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -162,7 +151,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="92dp"
         android:background="@android:color/transparent"
         android:contentDescription="btn_level"
         android:src="@drawable/btn_level"
@@ -192,5 +181,19 @@
         android:src="@drawable/btn_quiz"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/recode_exp_gage"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="316dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="65dp"
+        android:max="500"
+        android:progress="200"
+        android:progressDrawable="@drawable/progressbar_custom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
