@@ -9,8 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -36,6 +38,8 @@ public class GarbageCamera extends AppCompatActivity {
     private final StorageReference reference = FirebaseStorage.getInstance().getReference();
     
     private Uri imageUri;
+
+    Bitmap bitmap;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,7 @@ public class GarbageCamera extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent galleryIntent = new Intent();
                 galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
                 galleryIntent.setType("image/");
@@ -75,6 +80,7 @@ public class GarbageCamera extends AppCompatActivity {
         });
     } // onCreate
 
+
     // 사진 가져오기
     ActivityResultLauncher<Intent> activityResult = registerForActivityResult(
         new ActivityResultContracts.StartActivityForResult(),
@@ -85,7 +91,7 @@ public class GarbageCamera extends AppCompatActivity {
                     imageUri = result.getData().getData();
 
                     imageView.setImageURI(imageUri);
-                }
+               }
             }
         }
     );
@@ -102,12 +108,15 @@ public class GarbageCamera extends AppCompatActivity {
 
                         // 이미지 모델에 담기
                         PIC_VALIDATION PIC_VALIDATION = new PIC_VALIDATION(uri.toString());
+                        //Toast.makeText(GarbageCamera.this, "이미지 모델에 담기 성공", Toast.LENGTH_SHORT).show();
 
                         // 키로 아이디 생성
                         String modelId = root.push().getKey();
+                        //Toast.makeText(GarbageCamera.this, "키로 아이디 생성 성공", Toast.LENGTH_SHORT).show();
 
                         // 데이터 넣기
                         root.child(modelId).setValue(PIC_VALIDATION);
+                        //Toast.makeText(GarbageCamera.this, "데이터 넣기 성공", Toast.LENGTH_SHORT).show();
 
                         // 프로그래스바 숨김
                         progressBar.setVisibility(View.INVISIBLE);
@@ -127,6 +136,7 @@ public class GarbageCamera extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 // 프로그래스바 숨김
                 progressBar.setVisibility(View.INVISIBLE);
+                //Log.e("로그","업로드 실패 로그");
                 Toast.makeText(GarbageCamera.this, "업로드 실패", Toast.LENGTH_SHORT).show();
             }
         });
@@ -134,7 +144,7 @@ public class GarbageCamera extends AppCompatActivity {
 
     // 파일타입 가져오기
     private String getFileExtension(Uri uri) {
-        ContentResolver cr = getContentResolver();
+         ContentResolver cr = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
 
         return mime.getExtensionFromMimeType(cr.getType(uri));
