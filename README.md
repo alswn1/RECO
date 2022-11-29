@@ -33,27 +33,24 @@
 <h5>
   - Front-end / Back-end <br/>
   - DB Leader <br/>
-  - QR 생성 및 인식 / 재활용 인증 AI / 사용자 E-Mail 인증 / Map (데이터 저장 및 가공, 쓰레기통 위치) / 마이페이지 (고객센터 내역 및 답변) / 공지 어드민 / 고객센터 어드민 (답변 작성) <br/>
+  - QR 생성 및 인식 / 재활용 인증 AI / 사용자 E-Mail 인증 / Map (데이터 저장 및 가공, 쓰레기통 위치) / 마이페이지 (고객센터 내역 및 답변)<br/>
+  - 공지 어드민 / 고객센터 어드민 (답변 작성)
 </h5>
 
 <br/>
-
-<details>
-<summary>members</summary>
-<div markdown="1">
-
 
 ##### 🐰 김주희 / Joo Hee Kim
 <h5>기여도 |  100% </h5>
 <h5>
   - Front-end / Back-end <br/>
   - PM, UI/UX Leader <br/>
-  - 자동 login & Log out / 홈 / 퀴즈 / 이벤트 / 공지 / Map (현재위치 , 위치 검색, 쓰레기통 상세주소)/ 마이페이지 (개인정보수정) / 레코빈 어드민 / 홈 어드민 / 어드민 로그인 <br/>
+  - 자동 login & Log out / 홈 / 퀴즈 / 이벤트 / 공지 / Map (현재위치 , 위치 검색, 쓰레기통 상세주소)/ 마이페이지 (개인정보수정)<br/>
+  - 레코빈 어드민 / 홈 어드민 / 어드민 로그인
 </h5>
 
 <br/>
 
-##### 🐨 박서영 / Seo Young Park
+##### 🐨 박주원 / Seo Young Park
 <h5>기여도 |  100% </h5>
 <h5>
   - Front-end / Back-end <br/>
@@ -91,6 +88,8 @@
 
 ### Target
 + 대한민국 쓰레기통의 위치가 궁금한 모든 사람
++ 플로깅 활동을 하는 사람
++ 환경 보호에 관심 많은 사람
 
 <br/>
 
@@ -105,7 +104,7 @@
 
 ### Contest
 + 제 10회 K-해커톤 전국 대학생 앱 개발 챌린지 본선 진출
-+ 2022년도 4차 산업혁명 인재양성 공유협업페스티벌 공모전 장려상
++ 2022 4차 산업혁명 인재양성 공유 협업 페스티벌 장려상
 
 <br/>
 
@@ -116,12 +115,12 @@
 |Home|<img width="30%" height="10%" alt="home" src="https://user-images.githubusercontent.com/93530261/198549541-87385c32-2a04-4249-8a23-bbfa4f7dbd59.png">|
 |Map|<img width="30%" height="10%" alt="map" src="https://user-images.githubusercontent.com/93530261/198549992-22105561-c5f9-4273-804d-8bdc741b15c0.png">|
 |Trashcan|<img width="30%" height="10%" alt="trashcan" src="https://user-images.githubusercontent.com/93530261/198550723-53c7eee9-da04-46cf-80bd-6ee3d851902c.png">|
-|Reco Bin|<img width="30%" height="10%" alt="recobin" src="https://user-images.githubusercontent.com/93530261/198550633-9ef4e2ca-9863-4e01-afb6-b42005a07eef.png">|
+|Recobin|<img width="30%" height="10%" alt="recobin" src="https://user-images.githubusercontent.com/93530261/198550633-9ef4e2ca-9863-4e01-afb6-b42005a07eef.png">|
 
 <br/>
 
 ## Project Repository
-깃허브 : https://github.com/alswn1/reco_capstone
+GitHub : https://github.com/alswn1/RECO
 
 <br/>
 
